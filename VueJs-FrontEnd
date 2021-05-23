@@ -1,0 +1,193 @@
+App.vue file
+
+<template>
+    <div class="grid-container">
+        <Sidebar></Sidebar>
+        <Header></Header>
+        <MainDisplay></MainDisplay>
+        <Footer></Footer>
+    </div>
+</template>
+
+<script>
+
+import Sidebar from './components/Sidebar.vue'
+import Header from './components/Header.vue'
+import MainDisplay from './components/MainDisplay.vue'
+import Footer from './components/Footer.vue'
+
+export default {
+    name: 'substructure_page',
+    components: {
+        Sidebar,
+        Header,
+        MainDisplay,
+        Footer
+    },
+}
+</script>
+
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-areas: 'Sidebar Header'
+                             'Sidebar Main'
+                             'Footer Footer';
+        grid-template-columns: 300px auto ;
+        grid-template-rows: auto 1fr auto;
+        grid-gap: 10px;
+        background-color:grey;
+        padding: 10px;
+        align-content: space-evenly;
+    
+   
+}
+
+    @media screen  and (max-width:600px) {
+        .grid-container {
+            grid-template-areas: 'Sidebar Sidebar'
+                                 'Header Header'
+                                 'Main Main'
+                                 'Footer Footer';
+        }    
+    }
+</style>
+
+Header.vue file
+
+<template>
+    <div class="grid-header">
+        <h1>{{ title }}</h1>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'Header',
+    data () {
+        return {
+            title: 'Header'
+        }        
+    }
+}
+</script>
+
+<style>
+    .grid-header {
+        grid-area: Header;
+        background-color: #0099ff;
+        text-align: center;
+        border-radius: 25px;
+        padding: 5px;
+    
+    }
+</style>
+
+Sidebar.vue file
+
+<template>
+
+  <div class="grid-sidebar">
+    <h1>{{ title }}</h1>
+    <hr class="solid">
+      <div class="sidenav">
+        <nav class="nav flex-column">
+            <a class="nav-link" href="#">Active</a>
+            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Link</a>
+        </nav>
+      </div>
+  </div>       
+
+</template>
+
+<script>
+export default {
+    name: 'SideBar',
+    data () {
+      return {
+        title: 'Sidebar'
+      }
+    }
+}
+</script>
+
+<style>
+
+  .grid-sidebar {
+    grid-area: Sidebar;
+    background-color: #9999ff;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px 0px #99ccff;
+    
+   
+  }   
+  
+hr.solid {
+  border-top: 3px solid black;
+  margin: 0px 30px 0px 30px;
+}  
+</style>
+
+Main.vue file
+
+<template>
+    <div class="grid-display">
+        <h1>{{ title }}</h1>
+    </div>
+    
+
+</template>
+
+<script>
+export default {
+    name: 'MainDisplay',
+    data () {
+        return {
+            title: 'Main'
+        }
+    }
+}
+
+</script>
+
+<style>
+    .grid-display {
+        grid-area: Main;
+        background-color: purple; 
+        text-align: center;
+        border-radius: 25px;
+     
+    }
+</style>
+
+Footer.vue file
+
+<template>
+    <div class="grid-footer">
+        <h1>{{ title }}</h1>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'Footer',
+    data () {
+        return {
+            title: 'Footer'
+        }        
+    }
+}
+</script>
+
+<style>
+    .grid-footer {
+        grid-area: Footer;
+        background-color: blueviolet;
+        text-align: center;
+        border-radius: 25px;
+               
+    }
+</style>
